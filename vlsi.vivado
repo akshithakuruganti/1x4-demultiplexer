@@ -1,0 +1,16 @@
+moduledemux1x4(r4,r5,r1,p1,I0,s0,s1); output r4,r5,r1,p1;
+inputI0,s0,s1; toffouli_gateu1(p,q,r,a,b,c); toffouli_gateu2(p,q,r,a,b,c); toffouli_gateu3(p,q,r,a,b,c); toffouli_gateu4(p,q,r,a,b,c); toffouli_gateu5(p,q,r,a,b,c); peresu6(p,q,r,a,b,c); endmodule
+ 
+TESTBENCH
+
+module demux_tb(); reg I0,s0,s1;
+wire r4,r5,r1,p1;
+demux1x4 ut(r4,r5,r1,p1,I0,s0,s1); initial
+begin
+I0=1;s0=0;s1=0;
+#10 I0=1;s0=0;s1=1;
+#10 I0=1;s0=1;s1=0;
+#10 I0=1;s0=1;s1=1;
+#10$stop;
+$finish; end
+endmodule
